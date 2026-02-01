@@ -1,0 +1,429 @@
+/* 全局样式和主题配色 */
+
+/* CSS变量定义 - 神秘主题 */
+:root {
+  /* 深色神秘主题配色 */
+  --primary-bg: #1a1a2e;
+  --secondary-bg: #16213e;
+  --tertiary-bg: #0f1729;
+  --accent-color: #e94560;
+  --gold-accent: #f4a261;
+  --text-light: #eaeaea;
+  --text-muted: #b0b0b0;
+  --border-color: #2d3561;
+
+  /* 渐变 */
+  --mystic-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-back-gradient: linear-gradient(135deg, #2d3561 0%, #1a1a2e 100%);
+  --gold-gradient: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+
+  /* 阴影 */
+  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(233, 69, 96, 0.3);
+
+  /* 间距 */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 基础样式 */
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--primary-bg);
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* 神秘背景效果 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 容器 */
+.game-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  z-index: 1;
+}
+
+/* 头部 */
+.app-header {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  background: var(--secondary-bg);
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: var(--spacing-xl);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  background: var(--mystic-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: 2px;
+}
+
+/* 按钮样式 */
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.primary-btn {
+  background: var(--mystic-gradient);
+  color: white;
+  box-shadow: var(--shadow-medium);
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: var(--secondary-bg);
+  color: var(--text-light);
+  border: 2px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+  background: var(--tertiary-bg);
+  border-color: var(--accent-color);
+}
+
+/* 牌阵选择区 */
+.spread-selector {
+  background: var(--secondary-bg);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-medium);
+}
+
+.spread-selector h2 {
+  color: var(--gold-accent);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+}
+
+.spread-options {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.spread-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--tertiary-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.spread-btn:hover {
+  border-color: var(--accent-color);
+  background: var(--secondary-bg);
+}
+
+.spread-btn.active {
+  background: var(--mystic-gradient);
+  border-color: transparent;
+  color: white;
+}
+
+/* 占卜区域 */
+.reading-area {
+  min-height: 600px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.spread-container {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 操作按钮区 */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* 解读面板 */
+.interpretation-panel {
+  background: var(--secondary-bg);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-strong);
+  margin-top: var(--spacing-xl);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.interpretation-panel h3 {
+  color: var(--gold-accent);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card-interpretations {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.interpretation-item {
+  background: var(--tertiary-bg);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.interpretation-item h4 {
+  color: var(--gold-accent);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.1rem;
+}
+
+.interpretation-item .card-title {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.interpretation-item .orientation {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--mystic-gradient);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.interpretation-item .meaning {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.8;
+}
+
+.interpretation-item .details {
+  display: grid;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.interpretation-item .keywords {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
+}
+
+.keyword {
+  padding: 0.25rem 0.75rem;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* 页脚 */
+.app-footer {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+}
+
+/* 弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--secondary-bg);
+  border-radius: 16px;
+  max-width: 95vw;
+  max-height: 95vh;
+  width: 1000px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+  background: var(--tertiary-bg);
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--gold-accent);
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--accent-color);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-spread-container {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 弹窗中的卡牌位置标签 */
+.modal-spread-container .position-label {
+  opacity: 1;
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tertiary-bg);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--gold-accent);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .spread-container {
+    height: 400px;
+  }
+
+  .interpretation-panel {
+    position: relative;
+    max-height: none;
+  }
+
+  .game-container {
+    padding: var(--spacing-sm);
+  }
+
+  /* 弹窗响应式 */
+  .modal-content {
+    width: 95vw;
+    max-height: 90vh;
+  }
+
+  .modal-spread-container {
+    min-height: 450px;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .spread-container {
+    height: 300px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

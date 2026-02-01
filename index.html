@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="塔罗牌占卜游戏 - 通过抽牌探索命运，了解塔罗牌的神秘含义">
+  <meta name="keywords" content="塔罗牌,占卜,塔罗,命运,预测">
+  <title>塔罗牌占卜 - Tarot Reading</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/spreads.css">
+</head>
+<body>
+  <!-- 头部 -->
+  <header class="app-header">
+    <h1>✦ 塔罗牌占卜 ✦</h1>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">探索命运的奥秘</p>
+  </header>
+
+  <!-- 占卜区域 -->
+  <main class="game-container">
+    <!-- 牌阵选择区 -->
+    <section class="spread-selector">
+      <h2>选择牌阵</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">
+        不同的牌阵适用于不同的问题，选择最适合你当前需求的牌阵
+      </p>
+      <div class="spread-options">
+        <button class="spread-btn" data-spread="single">
+          <strong>每日一卡</strong><br>
+          <small>快速指引</small>
+        </button>
+        <button class="spread-btn" data-spread="threeCard">
+          <strong>三牌阵</strong><br>
+          <small>过去·现在·未来</small>
+        </button>
+        <button class="spread-btn" data-spread="fiveCard">
+          <strong>五牌阵</strong><br>
+          <small>深入洞察</small>
+        </button>
+        <button class="spread-btn" data-spread="celticCross">
+          <strong>凯尔特十字</strong><br>
+          <small>全面分析</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- 占卜区域 -->
+    <section class="reading-area">
+      <div class="spread-container">
+        <!-- 塔罗牌将动态添加到这里 -->
+      </div>
+
+      <!-- 操作按钮 -->
+      <div class="action-buttons">
+        <button id="shuffle-btn" class="btn primary-btn">
+          🔀 洗牌
+        </button>
+        <button id="draw-btn" class="btn primary-btn" disabled>
+          🃏 抽牌
+        </button>
+        <button id="flip-all-btn" class="btn secondary-btn" disabled style="display: none;">
+          🔄 翻转所有牌
+        </button>
+        <button id="reset-btn" class="btn secondary-btn" disabled>
+          ↻ 重新开始
+        </button>
+      </div>
+
+      <!-- 使用说明 -->
+      <div style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+        <p>💡 <strong>使用提示：</strong></p>
+        <p>1. 选择适合的牌阵 → 2. 点击"洗牌" → 3. 点击"抽牌" → 4. 点击卡牌查看解读</p>
+      </div>
+    </section>
+
+    <!-- 牌阵弹窗 -->
+    <div id="spread-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">塔罗牌阵</h2>
+          <button class="modal-close" id="modal-close-btn">✕</button>
+        </div>
+        <div class="modal-body">
+          <div id="modal-spread-container" class="modal-spread-container">
+            <!-- 牌阵将在这里显示 -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 解读面板 -->
+    <aside class="interpretation-panel" style="display: none;">
+      <h3>✨ 占卜解读 ✨</h3>
+      <div class="card-interpretations">
+        <!-- 解读内容将动态添加到这里 -->
+      </div>
+      <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem;">
+        <p>💭 塔罗牌只是一面镜子，真正的答案在你心中</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="app-footer">
+    <p>✦ 塔罗牌占卜游戏 ✦</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+      仅供娱乐，不构成任何建议 | 使用HTML5技术开发
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.7;">
+      包含78张完整塔罗牌 - 22张大阿卡那 + 56张小阿卡那
+    </p>
+  </footer>
+
+  <!-- JavaScript模块 -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+/* 牌阵布局样式 */
+
+/* 牌阵容器 */
+.spread-container,
+.modal-spread-container {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 单张牌阵 */
+.spread-single .card {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spread-single .card.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-single .card.reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+/* 三牌阵 - 水平排列 */
+.spread-three .card[data-position="0"] {
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spread-three .card[data-position="0"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-three .card[data-position="0"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-three .card[data-position="1"] {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spread-three .card[data-position="1"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-three .card[data-position="1"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-three .card[data-position="2"] {
+  left: 80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spread-three .card[data-position="2"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-three .card[data-position="2"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+/* 五牌阵 - 十字形 */
+.spread-five .card[data-position="0"] {
+  /* 中心 - 现状 */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;  /* 中心牌在最上层 */
+}
+
+.spread-five .card[data-position="0"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-five .card[data-position="0"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-five .card[data-position="1"] {
+  /* 左侧 - 挑战 */
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.spread-five .card[data-position="1"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-five .card[data-position="1"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-five .card[data-position="2"] {
+  /* 上方 - 过去影响 */
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.spread-five .card[data-position="2"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-five .card[data-position="2"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-five .card[data-position="3"] {
+  /* 下方 - 未来可能 */
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spread-five .card[data-position="3"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-five .card[data-position="3"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-five .card[data-position="4"] {
+  /* 右侧 - 建议 */
+  left: 80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.spread-five .card[data-position="4"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-five .card[data-position="4"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+/* 凯尔特十字牌阵 */
+.spread-celticcross .card[data-position="0"] {
+  /* 现状 */
+  left: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.spread-celticcross .card[data-position="0"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="0"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="1"] {
+  /* 挑战/障碍 - 横放 */
+  left: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: 6;
+}
+
+.spread-celticcross .card[data-position="1"].flipped {
+  transform: translate(-50%, -50%) rotate(90deg) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="1"].reversed.flipped {
+  transform: translate(-50%, -50%) rotate(90deg) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="2"] {
+  /* 潜意识/根源 */
+  left: 40%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.spread-celticcross .card[data-position="2"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="2"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="3"] {
+  /* 过去 */
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.spread-celticcross .card[data-position="3"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="3"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="4"] {
+  /* 目标/最佳可能 */
+  left: 40%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.spread-celticcross .card[data-position="4"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="4"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="5"] {
+  /* 近期未来 */
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.spread-celticcross .card[data-position="5"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="5"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="6"] {
+  /* 你的态度 */
+  left: 75%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spread-celticcross .card[data-position="6"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="6"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="7"] {
+  /* 外部影响 */
+  left: 75%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spread-celticcross .card[data-position="7"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="7"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="8"] {
+  /* 希望/恐惧 */
+  left: 75%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spread-celticcross .card[data-position="8"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="8"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+.spread-celticcross .card[data-position="9"] {
+  /* 最终结果 */
+  left: 75%;
+  top: 26%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spread-celticcross .card[data-position="9"].flipped {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.spread-celticcross .card[data-position="9"].reversed.flipped {
+  transform: translate(-50%, -50%) rotateY(180deg) rotate(180deg);
+}
+
+/* 牌阵标签 - 独立定位，不跟随卡牌翻转 */
+.position-label {
+  position: absolute;
+  font-size: 0.85rem;
+  color: var(--gold-accent);
+  white-space: nowrap;
+  text-align: center;
+  background: var(--secondary-bg);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0.9;
+  border: 1px solid var(--border-color);
+  z-index: 100; /* 确保在卡牌上方 */
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .spread-container {
+    min-height: 400px;
+    transform: scale(0.85);
+  }
+
+  /* 三牌阵调整 */
+  .spread-three .card[data-position="0"] {
+    left: 15%;
+  }
+
+  .spread-three .card[data-position="2"] {
+    left: 85%;
+  }
+
+  /* 凯尔特十字在平板上简化显示 */
+  .spread-celticcross {
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 480px) {
+  .spread-container {
+    min-height: 300px;
+    transform: scale(0.7);
+  }
+
+  /* 三牌阵在手机上垂直排列 */
+  .spread-three .card[data-position="0"] {
+    left: 50%;
+    top: 20%;
+  }
+
+  .spread-three .card[data-position="1"] {
+    left: 50%;
+    top: 50%;
+  }
+
+  .spread-three .card[data-position="2"] {
+    left: 50%;
+    top: 80%;
+  }
+
+  /* 五牌阵在手机上调整 */
+  .spread-five {
+    transform: scale(0.6);
+  }
+
+  /* 凯尔特十字在手机上大幅缩小 */
+  .spread-celticcross {
+    transform: scale(0.5);
+  }
+}
